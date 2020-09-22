@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articlles",
+  "info": {
+    "name": "articlle"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

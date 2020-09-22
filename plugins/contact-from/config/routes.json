@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/getMessage",
+      "handler": "contact-from.index",
+      "config": {
+        "policies": ["plugins::contact-from.isAuth"],
+        "prefix":false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/create",
+      "handler": "contact-from.create",
+      "config": {
+        "policies": ["plugins::contact-from.isAuth"]
+      }
+    }
+  ]
+}

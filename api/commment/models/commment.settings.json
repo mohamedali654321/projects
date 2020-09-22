@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commments",
+  "info": {
+    "name": "commment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "body": {
+      "type": "richtext"
+    },
+    "author": {
+      "via": "commments",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "papper": {
+      "model": "papper",
+      "via": "commments"
+    }
+  }
+}

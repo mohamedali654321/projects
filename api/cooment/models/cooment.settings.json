@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cooments",
+  "info": {
+    "name": "cooment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

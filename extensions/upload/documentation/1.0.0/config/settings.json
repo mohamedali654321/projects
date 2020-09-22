@@ -1,0 +1,16 @@
+
+   {
+       "provider":"aws-s3",
+       "providerOptions":{
+        "accessKeyId": "dev-key",
+        "secretAccessKey": "dev-secret",
+        "region": "aws-region",
+        "params": {
+          "Bucket": "strapi-dem-1337"
+        }
+
+       }
+
+
+   }
+  

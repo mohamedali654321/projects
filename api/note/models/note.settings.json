@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notes",
+  "info": {
+    "name": "note"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "author": {
+      "via": "notes",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/orderrs",
+      "handler": "orderr.find",
+      "config": {
+        "policies": ["isUser"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/orderrs/count",
+      "handler": "orderr.count",
+      "config": {
+        "policies": ["isUser"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/orderrs/:id",
+      "handler": "orderr.findOne",
+      "config": {
+        "policies": ["isUser"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/orderrs",
+      "handler": "orderr.create",
+      "config": {
+        "policies": ["isUser"]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/orderrs/:id",
+      "handler": "orderr.update",
+      "config": {
+        "policies": ["isUser"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/orderrs/:id",
+      "handler": "orderr.delete",
+      "config": {
+        "policies": ["isUser"]
+      }
+    }
+  ]
+}

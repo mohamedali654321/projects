@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "companies",
+  "info": {
+    "name": "company"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.header"
+    },
+    "body": {
+      "type": "dynamiczone",
+      "components": [
+        "page.body-section",
+        "page.text"
+      ]
+    }
+  }
+}

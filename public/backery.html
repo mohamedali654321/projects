@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <title>Backery</title>
+</head>
+<body>
+    <section class="container">
+        <h1>Add new delicious food</h1>
+        <label for="name">
+          <span>Name :</span>
+          <!-- name of the bakery entity -->
+          <input type="text" name="name" id="name" class="form-control" />
+        </label>
+        <br>
+        <label for="rating">
+          <span>Rating :</span>
+          <!-- rating of the bakery entity -->
+          <select name="rating" id="rating" class="form-control">
+            <option value='' selected>rating us</option>
+            <option value="1">1 star</option>
+            <option value="2">2 stars</option>
+            <option value="3">3 stars</option>
+            <option value="4">4 stars</option>
+            <option value="5">5 stars</option>
+          </select>
+        </label>
+        <br>
+        <button id="add" class="btn btn-outline-success">Add</button>
+        <br>
+        <div id="food"></div>
+        </section>
+        
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script >
+        const socket=io();
+        socket.on('hello',(res)=>{console.log(res)})
+        const name=document.getElementById('name');
+        const rating=document.getElementById('rating');
+        const add=document.getElementById('add');
+        const food = document.getElementById('food');
+        add.addEventListener('click',()=>{
+            fetch('http://localhost:1337/bakeries',{
+                method:'post',
+                headers:
+                    {
+                        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                    },
+                    body:`name=${name.value}&rating=${rating.value}`
+                
+            })
+            .then(result=>{
+                if(result.status !== 200)
+                {
+                    return;
+                }
+                else{
+                    result.json().then((data)=>{console.log(data)})
+                    name.value='';
+                    
+                }
+            })
+            .catch(err=>{console.log(err)});
+        })
+        socket.on('food_ready', res => food.innerHTML += `<div> ${res.name} is ${res.rating}/5 so delicious</div>`);
+    </script>
+
+</body>
+</html>

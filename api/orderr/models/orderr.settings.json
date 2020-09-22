@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orderrs",
+  "info": {
+    "name": "orderr"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "productts": {
+      "collection": "productt",
+      "via": "orderrs",
+      "dominant": true
+    },
+    "user": {
+      "via": "orderrs",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "orderStatus": {
+      "type": "enumeration",
+      "enum": [
+        "order_confirmation",
+        "preparation",
+        "out_for_delivery",
+        "complete"
+      ],
+      "default": "order_confirmation"
+    }
+  }
+}

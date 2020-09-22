@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_texts",
+  "info": {
+    "name": "text",
+    "icon": "arrow-up"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "section": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.body-section"
+    }
+  }
+}

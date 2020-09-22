@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Upload</title>
+</head>
+<body>
+    <form>
+        <input type="file" name="files" multiple >
+        <input type="hidden" name="ref" >
+       <label>ID</label> <input type="text" id="ID" name="refId" >
+        <input type="hidden" name="field" >
+
+        <input type="submit" name="submit">
+    </form>
+    <script>
+        const form=document.querySelector('form');
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            const data=new FormData();
+            const ID=document.getElementById('ID');
+            
+            const filesInput=document.querySelector("input[type = 'file']");
+            for(let i=0;i<filesInput.files.length;i++){
+                data.append('files',filesInput.files[i]);
+            }
+            data.append('ref','content');
+            data.append('refId',ID.value);
+            data.append('field','thumbnail')
+
+            fetch("http://localhost:1337/upload",{
+                method:'POST',
+                
+                body:data
+            }).then(res=>{
+                res.json()
+            }).then(result=>{
+                console.log(result);
+            }).catch(err=>{
+                console.log(err);
+            })
+
+
+        })
+    </script>
+    
+</body>
+</html>

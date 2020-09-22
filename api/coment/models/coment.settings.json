@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coments",
+  "info": {
+    "name": "coment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "coments"
+    },
+    "post": {
+      "model": "post",
+      "via": "coments"
+    }
+  }
+}

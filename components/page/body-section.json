@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_page_body_sections",
+  "info": {
+    "name": "bodySection",
+    "icon": "atlas"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
